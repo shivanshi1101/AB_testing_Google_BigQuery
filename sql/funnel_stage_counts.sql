@@ -27,7 +27,6 @@ funnel_events AS (
     e._TABLE_SUFFIX BETWEEN '20201101' AND '20201107'
     AND e.event_name IN ('page_view', 'view_item', 'add_to_cart', 'begin_checkout', 'purchase')
 )
-
 SELECT
   ab_group,
   event_name,
