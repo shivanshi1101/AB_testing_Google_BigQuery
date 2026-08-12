@@ -1,7 +1,7 @@
 # A/B Experimentation and Conversion Funnel Evaluation
 
 **Tools:** SQL (Google BigQuery) · Power BI
-**Data source:** [GA4 Obfuscated Sample E-commerce Dataset](https://console.cloud.google.com/marketplace/product/bigquery-public-datasets/ga4-obfuscated-sample-ecommerce) — `bigquery-public-data.ga4_obfuscated_sample_ecommerce`
+**Data source:** [GA4 Obfuscated Sample E-commerce Dataset](https://console.cloud.google.com/marketplace/product/bigquery-public-datasets/ga4-obfuscated-sample-ecommerce) - `bigquery-public-data.ga4_obfuscated_sample_ecommerce`
 
 ## Project Overview
 
@@ -27,7 +27,7 @@ project:
    users who reached checkout but did not purchase were flipped to "converted," simulating
    the effect of a real UX improvement.
 3. All underlying behavioral data (page views, cart adds, checkout starts) is 100% real GA4
-   data — only the group assignment and the lift are synthetic.
+   data - only the group assignment and the lift are synthetic.
 
 This is a standard, transparent technique for building experimentation portfolio projects
 on top of observational data, and is disclosed here for full transparency.
@@ -42,7 +42,7 @@ The project runs on 3 SQL files, executed and saved as BigQuery views in this or
 | 1 | Build the funnel: distinct users reaching each stage, per group, using random control/variant assignment (`FARM_FINGERPRINT` hash split) | `sql/01_funnel_stage_counts.sql` | `funnel_stage_counts` |
 | 2 | Apply a synthetic conversion lift to the variant group (~15% of near-miss checkout users flipped to "converted") | `sql/02_user_funnel_synthetic.sql` | `user_funnel_synthetic` |
 | 3 | Two-proportion z-test comparing control vs variant conversion rates | `sql/03_ab_test_stats.sql` | `ab_test_stats` |
-| 4 | Power BI dashboard | `powerbi/` | — |
+| 4 | Power BI dashboard | `powerbi/` | - |
 
 ## BigQuery Views Used by Power BI
 
